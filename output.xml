@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.1 on win32)" generated="20220331 12:55:26.188" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="D:\Kurssit\ohjelmistotuotanto\ohtu-miniprojekti\src\tests">
+<suite id="s1-s1" name="Lisaa Vinkki" source="D:\Kurssit\ohjelmistotuotanto\ohtu-miniprojekti\src\tests\lisaa_vinkki.robot">
+<test id="s1-s1-t1" name="Lisaa Vinkki" line="5">
+<kw name="Lisaa Uusi Vinkki" library="VinkkikirjastoLibrary">
+<arg>otsikko</arg>
+<arg>linkki</arg>
+<status status="PASS" starttime="20220331 12:55:26.212" endtime="20220331 12:55:26.212"/>
+</kw>
+<kw name="Uuden Vinkin Otsikko Pitaisi Olla" library="VinkkikirjastoLibrary">
+<arg>otsikko</arg>
+<status status="PASS" starttime="20220331 12:55:26.213" endtime="20220331 12:55:26.213"/>
+</kw>
+<status status="PASS" starttime="20220331 12:55:26.212" endtime="20220331 12:55:26.213"/>
+</test>
+<status status="PASS" starttime="20220331 12:55:26.207" endtime="20220331 12:55:26.214"/>
+</suite>
+<status status="PASS" starttime="20220331 12:55:26.189" endtime="20220331 12:55:26.215"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Lisaa Vinkki">Tests.Lisaa Vinkki</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

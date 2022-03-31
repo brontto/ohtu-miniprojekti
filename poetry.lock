@@ -294,6 +294,14 @@ tomli = ">=1.0.0"
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
 
 [[package]]
+name = "robotframework"
+version = "5.0"
+description = "Generic automation framework for acceptance testing and robotic process automation (RPA)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -351,7 +359,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "8fe9280e3b34ff481f2f05136df8b5cd5a7500deb54928a47ac6cbf8c86b3aef"
+content-hash = "6e623cbc2543942ccbe7ac311a25cacab823993cfec1a1d8d6399ee12d300acb"
 
 [metadata.files]
 astroid = [
@@ -565,6 +573,10 @@ pyparsing = [
 pytest = [
     {file = "pytest-7.1.1-py3-none-any.whl", hash = "sha256:92f723789a8fdd7180b6b06483874feca4c48a5c76968e03bb3e7f806a1869ea"},
     {file = "pytest-7.1.1.tar.gz", hash = "sha256:841132caef6b1ad17a9afde46dc4f6cfa59a05f9555aae5151f73bdf2820ca63"},
+]
+robotframework = [
+    {file = "robotframework-5.0-py3-none-any.whl", hash = "sha256:ee912636885e2dc4bcf4ec1d5b3ac2a5b81cadfcfedf4a169bd4ad6576ff8f53"},
+    {file = "robotframework-5.0.zip", hash = "sha256:bffecba8c43d4294936d921f0af4941079039edce88194769133719732c608bc"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
