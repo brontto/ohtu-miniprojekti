@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.1 on win32)" generated="20220331 12:55:26.188" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0 (Python 3.10.1 on win32)" generated="20220331 13:17:26.202" rpa="false" schemaversion="3">
 <suite id="s1" name="Tests" source="D:\Kurssit\ohjelmistotuotanto\ohtu-miniprojekti\src\tests">
 <suite id="s1-s1" name="Lisaa Vinkki" source="D:\Kurssit\ohjelmistotuotanto\ohtu-miniprojekti\src\tests\lisaa_vinkki.robot">
 <test id="s1-s1-t1" name="Lisaa Vinkki" line="5">
-<kw name="Lisaa Uusi Vinkki" library="VinkkikirjastoLibrary">
+<kw name="Lisaa Uusi Vinkki">
 <arg>otsikko</arg>
 <arg>linkki</arg>
-<status status="PASS" starttime="20220331 12:55:26.212" endtime="20220331 12:55:26.212"/>
+<msg timestamp="20220331 13:17:26.229" level="FAIL">No keyword with name 'Lisaa Uusi Vinkki' found.</msg>
+<status status="FAIL" starttime="20220331 13:17:26.229" endtime="20220331 13:17:26.229"/>
 </kw>
-<kw name="Uuden Vinkin Otsikko Pitaisi Olla" library="VinkkikirjastoLibrary">
+<kw name="Uuden Vinkin Otsikko Pitaisi Olla">
 <arg>otsikko</arg>
-<status status="PASS" starttime="20220331 12:55:26.213" endtime="20220331 12:55:26.213"/>
+<status status="NOT RUN" starttime="20220331 13:17:26.230" endtime="20220331 13:17:26.230"/>
 </kw>
-<status status="PASS" starttime="20220331 12:55:26.212" endtime="20220331 12:55:26.213"/>
+<status status="FAIL" starttime="20220331 13:17:26.228" endtime="20220331 13:17:26.231">No keyword with name 'Lisaa Uusi Vinkki' found.</status>
 </test>
-<status status="PASS" starttime="20220331 12:55:26.207" endtime="20220331 12:55:26.214"/>
+<status status="FAIL" starttime="20220331 13:17:26.221" endtime="20220331 13:17:26.232"/>
 </suite>
-<status status="PASS" starttime="20220331 12:55:26.189" endtime="20220331 12:55:26.215"/>
+<status status="FAIL" starttime="20220331 13:17:26.203" endtime="20220331 13:17:26.233"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Lisaa Vinkki">Tests.Lisaa Vinkki</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Lisaa Vinkki">Tests.Lisaa Vinkki</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20220331 13:17:26.226" level="WARN">Imported library 'D:\Kurssit\ohjelmistotuotanto\ohtu-miniprojekti\src\vinkkikirjastoLibrary.py' contains no keywords.</msg>
 </errors>
 </robot>
