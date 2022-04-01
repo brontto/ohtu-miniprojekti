@@ -28,4 +28,6 @@ jobs:
         uses: codecov/codecov-action@v2
       - name: Analysing the code with pylint
         run: poetry run pylint src
+      - name: Run Robot
+        run: poetry run robot src/tests
         
