@@ -9,4 +9,4 @@ Ohtu-miniprojekti
 - Toiminallisuus on looginen osa ohjelmaa
 - Koodille on kirjoitettu testit
 - Testikattavuus on 70% 
-- Toiminallisuus on dokumentoitu
+
