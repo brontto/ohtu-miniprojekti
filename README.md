@@ -10,3 +10,5 @@ Ohtu-miniprojekti
 - Koodille on kirjoitettu testit
 - Testikattavuus on 70% 
 
+[Burndown-käyrä](https://docs.google.com/spreadsheets/d/1m27JJOADbrihQkSxDsu489VpF2iS6y8GJkZCpKXE13c/edit#gid=247189649)
+
