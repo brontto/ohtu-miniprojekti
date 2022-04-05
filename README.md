@@ -2,7 +2,7 @@
 
 Ohtu-miniprojekti
 
-![GitHub Actions](https://github.com/brontto/ohtu-miniprojekti/workflows/CI/badge.svg)
+[![GitHub Actions](https://github.com/brontto/ohtu-miniprojekti/workflows/CI/badge.svg)](https://github.com/brontto/ohtu-miniprojekti/actions)
 [![codecov](https://codecov.io/gh/brontto/ohtu-miniprojekti/branch/main/graph/badge.svg?token=DYFHMFXATT)](https://codecov.io/gh/brontto/ohtu-miniprojekti)
 
 ## Definition of Done
