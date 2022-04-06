@@ -22,12 +22,30 @@ def luo_vinkki():
 
 @app.route("/kirjautuminen", methods=["POST"])
 def kirjautuminen():
-    # kayttajatunnus = request.form["kayttajatunnus"]
-    # salasana = request.form["salasana"]
+    kayttajatunnus = request.form["kayttajatunnus"]
+    salasana = request.form["salasana"]
+    print(kayttajatunnus, salasana)
 
     # Tarkasta onko käyttäjää olemassa ja onko salasana oikein
     # Uudelleenohjaus takaisin etusivulle tai lukuvinkkeihin
     return redirect("/lukuvinkit")
+
+@app.route("/rekisterointi", methods=["GET"])
+def rekisterointi():
+    return render_template("rekisterointi.html")
+
+@app.route("/luo_uusi_kayttaja", methods=["POST"])
+def luo_uusi_kayttaja():
+    kayttajatunnus = request.form["kayttajatunnus"]
+    salasana = request.form["salasana"]
+    salasana2 = request.form["salasana_varmistus"]
+    print(kayttajatunnus,salasana,salasana2)
+    #Tarkastetaan että kentät ei ole tyhjiä ja että salasanat täsmäävät
+    #Tarkistetaan että nimi ei ole käytössä
+    #printataan kayttajatunnus,salasana ja salasana2 jottei pylint huuda käyttämättömistä muuttujista
+    return redirect("/lukuvinkit")
+
+
 
 @app.route("/lukuvinkit", methods=["GET"])
 def render_lukuvinkit():
@@ -35,6 +53,6 @@ def render_lukuvinkit():
     return render_template("lukuvinkit.html", vinkkilista = vinkkilista)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def render_etusivu():
     return render_template("etusivu.html")

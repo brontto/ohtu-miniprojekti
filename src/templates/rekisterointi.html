@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Rekisteröinti
+{% endblock %}
+
+{% block body %}
+<h1>Rekisteröidy lukuvinkit jäseneksi</h1>
+
+
+<body>
+    <p>Etkö omista vielä tunnusta? </p>
+    <p>Rekisteröidy jäseneksi niin pääset lisäämään uusia lukuvinkkejä listallesi </p>
+
+    <form action="/luo_uusi_kayttaja" method="POST">
+        <h2>Luo tunnus:</h2>
+        <br>
+        <input type="text" name="kayttajatunnus"></p>
+        <h2>Anna salasana:</h2>
+        <input type="password" name="salasana"></p>
+        <h2>Syötä salasana uudestaan:</h2>
+        <input type="password" name="salasana_varmistus"></p>
+        <input type="submit" value="Rekisteröidy"></p>
+    </form>
+
+</body>
+{% endblock %}
