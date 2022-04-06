@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Lukuvinkit
+{% endblock %}
+
+{% block body %}
+<h1>Lukuvinkit</h1>
+
+{% for vinkki in vinkkilista %}
+    <div> 
+        Otsikko: {{ vinkki.otsikko }} </br>
+        Url: <class="vinkki"><a href={{vinkki.url}}>{{ vinkki.url }}</a> 
+    </div>
+    <p>
+        
+{% endfor %}
+
+<body>
+    <p>
+    <form action="/luo_vinkki" method="POST">
+        <div>Otsikko:</div> 
+        <input type="text" name="otsikko">
+        <div>Url:</div> 
+        <input type="text" name="url">
+        <button type="submit">Luo uusi lukuvinkki</button>
+    </form>
+</body>
+
+
+{% endblock %}

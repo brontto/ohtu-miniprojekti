@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Lukuvinkit
+{% endblock %}
+
+{% block body %}
+<h1>Lukuvinkit</h1>
+
+<body>
+    <p>Tervetuloa! </p>
+    <form action="/kirjautuminen" method="POST">
+        <h2>Tunnus:</h2>
+        <br>
+        <input type="text" name="kayttajatunnus"></p>
+        <h2>Salasana:</h2>
+        <input type="password" name="salasana"></p>
+        <input type="submit" value="Kirjaudu">
+    </form>
+</body>
+{% endblock %}
