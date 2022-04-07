@@ -17,3 +17,26 @@ Ohtu-miniprojekti
 
 ## Heroku 
 [Heroku App](https://damp-dawn-78777.herokuapp.com/)
+
+## Tietokannan käyttöönotto
+
+Asenna PostgreSQL
+
+Asenna uudet riippuvuudet 
+```
+poetry install
+```
+Luo juurihakemistoon tiedosto *.env* ja lisää sinne rivi
+```
+DATABASE_URL=postgresql:///database_name
+```
+missä `database_name` on käyttämäsi tietokannan nimi (todennäköisesti joko `postgres` tai käyttäjänimesi).
+
+Alusta tietokantataulut komennolla
+```
+psql < schema.sql
+```
+Jos haluat testata pelkkiä lukuvinkkejä ilman käyttäjien luomista, pitää tietokantaan luoda yksi käyttäjä, tämä onnistuu psql-tulkissa komennolla
+```
+INSERT INTO kayttajat (tunnus, salasana) VALUES ('testaaja', 'testi');
+```
