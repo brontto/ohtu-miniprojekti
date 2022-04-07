@@ -7,6 +7,7 @@ from flask import (
     request,
     redirect
 )
+from vinkkikirjasto import Vinkkikirjasto
 
 
 app = Flask(__name__)
@@ -15,16 +16,12 @@ load_dotenv()
 app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
 db.init_app(app)
 
-from vinkkikirjasto import Vinkkikirjasto
-
 vinkkikirjasto = Vinkkikirjasto()
-# vinkkikirjasto.esimerkki_vinkit()
 
 @app.route("/luo_vinkki", methods=["POST"])
 def luo_vinkki():
     otsikko = request.form["otsikko"]
     url = "http://" + request.form["url"]
-    print(url)
     vinkkikirjasto.lisaa_uusi_vinkki(otsikko, url)
     return redirect("/lukuvinkit")
 
@@ -53,13 +50,10 @@ def luo_uusi_kayttaja():
     #printataan kayttajatunnus,salasana ja salasana2 jottei pylint huuda käyttämättömistä muuttujista
     return redirect("/lukuvinkit")
 
-
-
 @app.route("/lukuvinkit", methods=["GET"])
 def render_lukuvinkit():
     vinkkilista = vinkkikirjasto.hae_kaikki_vinkit()
     return render_template("lukuvinkit.html", vinkkilista = vinkkilista)
-
 
 @app.route("/")
 def render_etusivu():
