@@ -4,13 +4,15 @@ from flask import (
     request,
     redirect
 )
-from vinkkikirjasto import Vinkkikirjasto
+
 
 
 app = Flask(__name__)
 
+from vinkkikirjasto import Vinkkikirjasto
+
 vinkkikirjasto = Vinkkikirjasto()
-vinkkikirjasto.esimerkki_vinkit()
+# vinkkikirjasto.esimerkki_vinkit()
 
 @app.route("/luo_vinkki", methods=["POST"])
 def luo_vinkki():
