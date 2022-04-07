@@ -12,4 +12,21 @@ class VinkkiRepository:
             "linkki": vinkki.get_linkki()})
         db.session.commit()
 
-vinkki_repositorio = VinkkiRepository()
+    def hae_uusin_vinkki(self):
+        sql = "SELECT otsikko, linkki MAX(id) FROM lukuvinkit"
+        result = db.session.execute(sql)
+        uusin = result.fetchone()
+        return uusin
+
+    def hae_kaikki_vinkit(self):
+        sql = "SELECT otsikko, linkki FROM lukuvinkit"
+        result = db.session.execute(sql)
+        vinkit = result.fetchall()
+        return vinkit
+
+    def poista_kaikki_vinkit(self):
+        sql = "DELETE FROM lukuvinkit"
+        db.session.execute(sql)
+        db.session.commit()
+
+vinkkirepositorio = VinkkiRepository()
