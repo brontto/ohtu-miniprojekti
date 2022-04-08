@@ -1,3 +1,4 @@
+
 from os import getenv
 from dotenv import load_dotenv
 from flask import (
@@ -5,11 +6,13 @@ from flask import (
     render_template,
     request,
     redirect
+
 )
+from werkzeug.security import generate_password_hash
 from db import db
 
 from vinkkikirjasto import Vinkkikirjasto
-
+from kayttajat import Kayttajat
 
 app = Flask(__name__)
 
@@ -18,6 +21,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
 db.init_app(app)
 
 vinkkikirjasto = Vinkkikirjasto()
+kayttajat= Kayttajat()
 
 @app.route("/luo_vinkki", methods=["POST"])
 def luo_vinkki():
@@ -45,11 +49,15 @@ def luo_uusi_kayttaja():
     kayttajatunnus = request.form["kayttajatunnus"]
     salasana = request.form["salasana"]
     salasana2 = request.form["salasana_varmistus"]
+    if salasana == salasana2:
+        hash_salasana = generate_password_hash(salasana)
+        kayttajat.lisaa_uusi_kayttaja(kayttajatunnus,hash_salasana)
+
     print(kayttajatunnus,salasana,salasana2)
     #Tarkastetaan että kentät ei ole tyhjiä ja että salasanat täsmäävät
     #Tarkistetaan että nimi ei ole käytössä
     #printataan kayttajatunnus,salasana ja salasana2 jottei pylint huuda käyttämättömistä muuttujista
-    return redirect("/lukuvinkit")
+    return redirect("/")
 
 @app.route("/lukuvinkit", methods=["GET"])
 def render_lukuvinkit():
