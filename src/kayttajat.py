@@ -9,6 +9,6 @@ class Kayttajat:
     def lisaa_uusi_kayttaja(self, tunnus, salasana):
         self.kayttajat.lisaa_uusi_kayttaja(tunnus, salasana)
 
-    def tarkasta_kayttajatunnus(self):
-        pass
+    def tarkasta_kayttajatunnus(self, tunnus):
+        return self.kayttajat.tarkasta_sisaankirjautuminen(tunnus)
         

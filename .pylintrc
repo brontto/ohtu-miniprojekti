@@ -1,6 +1,7 @@
 [MASTER]
 
 ignore=tests,index.py, pygamemaze.py, VinkkikirjastoLibrary.py
+ignored-classes=scoped_session
 load-plugins=pylint.extensions.mccabe
 
 [MESSAGE CONTROL]

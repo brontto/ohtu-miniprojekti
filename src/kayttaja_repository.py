@@ -1,3 +1,4 @@
+from sqlite3 import IntegrityError
 from db import db
 
 class KayttajaRepository:
@@ -9,18 +10,21 @@ class KayttajaRepository:
             VALUES (:tunnus, :salasana)"
         try:
             db.session.execute(sql, {"tunnus": tunnus, "salasana": salasana})
-            db.session.commit()
-            print("Rekisteröityminen onnistui")
-        except Exception as virhe:
+        except IntegrityError as virhe:
             print(virhe)
-    # def tarkasta_sisaankirjautuminen(self, tunnus):
-    #     sql = "SELECT id, salasana FROM kayttajat WHERE tunnus=:tunnus"
-    #     result = db.session.execute(sql, {"tunnus":tunnus})
-    #     return result.fetchone()
+            return
 
-    # def hae_kayttajan_id(self, tunnus):
-    #     sql = "SELECT id FROM kayttajat WHERE tunnus=:tunnus"
-    #     result = db.session.execute(sql, {"tunnus":tunnus})
-    #     kayttajan_id = result.fetchone().id
-    #     return kayttajan_id
+        db.session.commit()
+
+    def tarkasta_sisaankirjautuminen(self, tunnus):
+        sql = "SELECT id, salasana FROM kayttajat WHERE tunnus=:tunnus"
+        result = db.session.execute(sql, {"tunnus":tunnus})
+        return result.fetchone()
+
+    def hae_kayttajan_id(self, tunnus):
+        sql = "SELECT id FROM kayttajat WHERE tunnus=:tunnus"
+        result = db.session.execute(sql, {"tunnus":tunnus})
+        kayttajan_id = result.fetchone().id
+        return kayttajan_id
+
 kayttajarepositorio = KayttajaRepository()
