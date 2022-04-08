@@ -1,12 +1,13 @@
 from os import getenv
 from dotenv import load_dotenv
-from db import db
 from flask import (
     Flask,
     render_template,
     request,
     redirect
 )
+from db import db
+
 from vinkkikirjasto import Vinkkikirjasto
 
 

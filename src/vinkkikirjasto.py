@@ -13,7 +13,7 @@ class Vinkkikirjasto:
 
     def hae_kaikki_vinkit(self):
         return self.vinkit.hae_kaikki_vinkit()
-        
+
     def hae_viimeksi_lisatty_vinkki(self):
         return self.vinkit.hae_uusin_vinkki()
 
