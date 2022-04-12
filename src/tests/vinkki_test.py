@@ -8,3 +8,7 @@ class TestMain(unittest.TestCase):
 
     def testaa_vastaus(self):
         self.assertEqual(self.vinkki.vastaus(), "Hello Hello!")
+
+    def testaa_huomenta(self):
+        self.assertEqual(self.vinkki.huomenta(), "Good Morning, Rise'n Shine Today!")
+

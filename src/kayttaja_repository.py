@@ -17,7 +17,7 @@ class KayttajaRepository:
         db.session.commit()
 
     def tarkasta_sisaankirjautuminen(self, tunnus):
-        sql = "SELECT id, salasana FROM kayttajat WHERE tunnus=:tunnus"
+        sql = "SELECT id, tunnus, salasana FROM kayttajat WHERE tunnus=:tunnus"
         result = db.session.execute(sql, {"tunnus":tunnus})
         return result.fetchone()
 
