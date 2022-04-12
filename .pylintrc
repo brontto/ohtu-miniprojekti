@@ -1,6 +1,6 @@
 [MASTER]
 
-ignore=tests,index.py, pygamemaze.py, VinkkikirjastoLibrary.py
+ignore=tests,index.py, pygamemaze.py, AppLibrary.py
 ignored-classes=scoped_session
 load-plugins=pylint.extensions.mccabe
 
