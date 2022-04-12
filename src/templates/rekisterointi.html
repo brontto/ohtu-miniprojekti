@@ -12,6 +12,9 @@ Rekisteröinti
     <p>Etkö omista vielä tunnusta? </p>
     <p>Rekisteröidy jäseneksi niin pääset lisäämään uusia lukuvinkkejä listallesi </p>
 
+    {% if error %}
+    <p>Error: {{error}}</p>
+    {% endif %}
     <form action="/luo_uusi_kayttaja" method="POST">
         <h2>Luo tunnus:</h2>
         <br>
