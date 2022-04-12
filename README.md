@@ -7,8 +7,10 @@ Ohtu-miniprojekti
 
 ## Definition of Done
 - Toiminnallisuus on looginen osa ohjelmaa
-- Koodille on kirjoitettu testit
-- Testikattavuus on 70% 
+- Toiminnallisuuden toteutukselle on kattavat yksikkötestit
+- Toteutusta on hyväksymistestattu
+- Testikattavuus on 80%
+- Tuotteen muutokset on viety tuotantoon
 
 [Burndown-käyrä](https://docs.google.com/spreadsheets/d/1m27JJOADbrihQkSxDsu489VpF2iS6y8GJkZCpKXE13c/edit#gid=139589834)
 
