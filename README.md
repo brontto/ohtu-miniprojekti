@@ -38,7 +38,3 @@ Alusta tietokantataulut komennolla
 ```
 psql < schema.sql
 ```
-Jos haluat testata pelkkiä lukuvinkkejä ilman käyttäjien luomista, pitää tietokantaan luoda yksi käyttäjä, tämä onnistuu psql-tulkissa komennolla
-```
-INSERT INTO kayttajat (tunnus, salasana) VALUES ('testaaja', 'testi');
-```
