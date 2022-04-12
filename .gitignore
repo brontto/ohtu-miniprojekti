@@ -51,6 +51,11 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# Robot Framework tests
+log.html
+output.xml
+report.html
+
 # Translations
 *.mo
 *.pot
