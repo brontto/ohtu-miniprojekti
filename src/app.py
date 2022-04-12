@@ -15,7 +15,7 @@ from kayttajat import Kayttajat
 app = Flask(__name__)
 
 load_dotenv()
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:123@localhost/vinkki"
+app.config["SQLALCHEMY_DATABASE_URI"] = getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
 db.init_app(app)
 
 
