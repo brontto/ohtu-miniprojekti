@@ -61,3 +61,4 @@ def render_lukuvinkit():
 @app.route("/")
 def render_etusivu():
     return render_template("etusivu.html")
+    
