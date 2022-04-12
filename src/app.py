@@ -18,6 +18,7 @@ load_dotenv()
 app.config["SQLALCHEMY_DATABASE_URI"] = getenv('DATABASE_URL').replace("://", "ql://", 1)
 db.init_app(app)
 
+
 vinkkikirjasto = Vinkkikirjasto()
 kayttajat= Kayttajat()
 
