@@ -55,13 +55,13 @@ def luo_uusi_kayttaja():
     kayttajatunnus = request.form["kayttajatunnus"]
     salasana = request.form["salasana"]
     salasana2 = request.form["salasana_varmistus"]
-    
+
     onkojoolemassa = kayttajat.tarkasta_kayttajatunnus(kayttajatunnus)
-    
+
     if onkojoolemassa:
         error = "käyttäjätunnus on jo olemassa"
         return render_template("rekisterointi.html", error=error)
-    
+
     if salasana == salasana2:
         hash_salasana = generate_password_hash(salasana)
         kayttajat.lisaa_uusi_kayttaja(kayttajatunnus,hash_salasana)
