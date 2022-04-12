@@ -15,7 +15,7 @@ from kayttajat import Kayttajat
 app = Flask(__name__)
 
 load_dotenv()
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+app.config["SQLALCHEMY_DATABASE_URI"] = getenv('DATABASE_URL').replace("://", "ql://", 1)
 db.init_app(app)
 
 vinkkikirjasto = Vinkkikirjasto()
