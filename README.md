@@ -12,7 +12,7 @@ Ohtu-miniprojekti
 - Testikattavuus on 80%
 - Tuotteen muutokset on viety tuotantoon
 
-[Burndown-käyrä](https://docs.google.com/spreadsheets/d/1m27JJOADbrihQkSxDsu489VpF2iS6y8GJkZCpKXE13c/edit#gid=139589834)
+[Burndown-käyrä](https://docs.google.com/spreadsheets/d/1m27JJOADbrihQkSxDsu489VpF2iS6y8GJkZCpKXE13c/edit#gid=453705215)
 
 [Product backlog](https://github.com/brontto/ohtu-miniprojekti/projects/1)
 
