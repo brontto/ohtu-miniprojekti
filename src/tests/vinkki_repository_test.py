@@ -1,10 +1,12 @@
 import unittest
 from vinkki_repository import vinkkirepositorio
 from lukuvinkki import Lukuvinkki
+import tests.conftest as conf
 
 class TestVinkkiRepository(unittest.TestCase):
     def setUp(self):
-        vinkkirepositorio.poista_kaikki_vinkit()
+        # vinkkirepositorio.poista_kaikki_vinkit()
+        conf.pytest_configure()
 
     def test_uuden_vinkin_lisaaminen(self):
         vinkkirepositorio.lisaa_uusi_vinkki(Lukuvinkki("Keijo Koo", "http://keijokoo.fi"))

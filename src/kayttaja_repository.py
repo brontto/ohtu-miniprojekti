@@ -1,4 +1,3 @@
-from sqlite3 import IntegrityError
 from db import db
 
 class KayttajaRepository:
@@ -8,12 +7,7 @@ class KayttajaRepository:
     def lisaa_uusi_kayttaja(self, tunnus, salasana):
         sql = "INSERT INTO kayttajat(tunnus, salasana) \
             VALUES (:tunnus, :salasana)"
-        try:
-            db.session.execute(sql, {"tunnus": tunnus, "salasana": salasana})
-        except IntegrityError as virhe:
-            print(virhe)
-            return
-
+        db.session.execute(sql, {"tunnus": tunnus, "salasana": salasana})
         db.session.commit()
 
     def tarkasta_sisaankirjautuminen(self, tunnus):
@@ -26,5 +20,16 @@ class KayttajaRepository:
         result = db.session.execute(sql, {"tunnus":tunnus})
         kayttajan_id = result.fetchone().id
         return kayttajan_id
+
+    def hae_kaikki_kayttajat(self):
+        sql = "SELECT * FROM kayttajat"
+        result = db.session.execute(sql)
+        kayttajat = result.fetchall()
+        return kayttajat
+
+    def poista_kaikki(self):
+        sql = "DELETE FROM kayttajat"
+        db.session.execute(sql)
+        db.session.commit()
 
 kayttajarepositorio = KayttajaRepository()

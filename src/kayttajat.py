@@ -11,4 +11,8 @@ class Kayttajat:
 
     def tarkasta_kayttajatunnus(self, tunnus):
         return self.kayttajat.tarkasta_sisaankirjautuminen(tunnus)
-        
+
+    def hae_kaikki_kayttajat(self):
+        return self.kayttajat.hae_kaikki_kayttajat()
+
+kayttajat = Kayttajat()
