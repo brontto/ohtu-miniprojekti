@@ -22,6 +22,8 @@ jobs:
         run: poetry install
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
       - name: Coverage report
         run: poetry run coverage xml
       - name: Coverage report to Codecov
