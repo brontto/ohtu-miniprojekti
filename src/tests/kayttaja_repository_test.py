@@ -5,9 +5,9 @@ from kayttajat import kayttajat
 import tests.conftest as conf
 
 class TestKayttajaRepository(unittest.TestCase):
+
     def setUp(self):
-        conf.alusta_tietokanta()
-        
+        conf.alusta_tietokanta()    
 
     def test_voi_lisata_uuden_kayttajan(self):
         kayttajat.lisaa_uusi_kayttaja("kala", "kissa")
