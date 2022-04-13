@@ -13,7 +13,7 @@ class VinkkiRepository:
         db.session.commit()
 
     def hae_uusin_vinkki(self):
-        sql = "SELECT otsikko, linkki MAX(id) FROM lukuvinkit"
+        sql = "SELECT otsikko, linkki FROM lukuvinkit ORDER BY id DESC LIMIT 1"
         result = db.session.execute(sql)
         uusin = result.fetchone()
         return uusin

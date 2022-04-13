@@ -9,6 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
 
     steps:
       - uses: actions/checkout@v2
@@ -22,6 +34,8 @@ jobs:
         run: poetry install
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
       - name: Coverage report
         run: poetry run coverage xml
       - name: Coverage report to Codecov

@@ -31,6 +31,11 @@ def alusta_tietokanta():
     poista_taulut()
     luo_taulut()
 
+def lisaa_kayttaja():
+    db.session.execute("""
+        INSERT INTO kayttajat (tunnus, salasana) VALUES ('testikeiju', 'testi123')
+        """)
+    db.session.commit()
 
 if __name__ == "__main__":
     alusta_tietokanta()
