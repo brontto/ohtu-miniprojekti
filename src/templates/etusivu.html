@@ -25,4 +25,16 @@ Lukuvinkit
 
 </body>
 
+<h3>Selaa lukuvinkkejä</h3>
+
+{% for vinkki in vinkkilista %}
+    <div> 
+        Otsikko: {{ vinkki.otsikko }} </br>
+        Url: <class="vinkki"><a href={{vinkki.linkki}}>{{ vinkki.linkki }}</a> 
+    </div>
+    <p>
+        
+{% endfor %}
+
+
 {% endblock %}

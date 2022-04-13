@@ -60,5 +60,6 @@ def render_lukuvinkit():
 
 @app.route("/")
 def render_etusivu():
-    return render_template("etusivu.html")
+    vinkkilista = vinkkikirjasto.hae_kaikki_vinkit()
+    return render_template("etusivu.html", vinkkilista = vinkkilista)
     
