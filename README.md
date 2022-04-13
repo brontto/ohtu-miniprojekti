@@ -32,9 +32,27 @@ Luo juurihakemistoon tiedosto *.env* ja lisää sinne rivi
 ```
 DATABASE_URL=postgresql:///database_name
 ```
-missä `database_name` on käyttämäsi tietokannan nimi (todennäköisesti joko `postgres` tai käyttäjänimesi).
+missä `database_name` on käyttämäsi tietokannan nimi.
 
 Alusta tietokantataulut komennolla
 ```
 psql < schema.sql
+```
+## Testaaminen
+
+Testit alustavat tietokannan jokaisella suorituskerralla joten niitä varten on hyvä luoda oma tietokanta. Siirry Postgresql:n komentoriville komennolla `psql` ja suorita siellä komento
+```
+CREATE DATABASE testitietokanta;
+```
+Luo projektin juurihakemistoon tiedosto *.env.test* ja lisää sinne rivi
+```
+DATABASE_URL=postgresql:///database_name
+```
+missä tietokannan nimi on äsken luomasi testitietokannan nimi.
+
+### Yksikkötestit
+
+Suorita yksikkötestit komennolla
+```
+poetry run invoke test
 ```
