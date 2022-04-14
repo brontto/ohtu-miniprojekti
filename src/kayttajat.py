@@ -1,6 +1,6 @@
-from werkzeug.security import check_password_hash, generate_password_hash
-from flask import session
 from secrets import token_hex
+from werkzeug.security import check_password_hash
+from flask import session
 from kayttaja_repository import kayttajarepositorio as default_kayttajarepo
 
 
@@ -23,10 +23,9 @@ class Kayttajat:
 
         if not kayttaja:
             return False
-        # hash = kayttaja[2]
         if not check_password_hash(kayttaja[2], salasana):
             return False
-        
+
         session["tunnus"] = tunnus
         session["kayttaja_id"] = kayttaja[0]
         session["csrf_token"] = token_hex(16)
@@ -37,6 +36,5 @@ class Kayttajat:
         del session["tunnus"]
         del session["kayttaja_id"]
         del session["csrf_token"]
-
 
 kayttajat = Kayttajat()

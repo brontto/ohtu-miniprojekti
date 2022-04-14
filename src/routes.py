@@ -19,11 +19,11 @@ def luo_vinkki():
 def kirjautuminen():
     tunnus = request.form["kayttajatunnus"]
     salasana = request.form["salasana"]
-    
+
     if not kayttajat.kirjaudu_sisaan(tunnus, salasana):
         print("Käyttäjätunnus tai salasana väärin")
         return redirect("/")
-    
+
     return redirect("/lukuvinkit")
 
 @app.route("/kirjaudu_ulos")
