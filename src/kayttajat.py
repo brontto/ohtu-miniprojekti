@@ -1,5 +1,8 @@
-# lisää uusi käyttäjä
+from werkzeug.security import check_password_hash, generate_password_hash
+from flask import session
+from secrets import token_hex
 from kayttaja_repository import kayttajarepositorio as default_kayttajarepo
+
 
 class Kayttajat:
 
@@ -14,5 +17,26 @@ class Kayttajat:
 
     def hae_kaikki_kayttajat(self):
         return self.kayttajat.hae_kaikki_kayttajat()
+
+    def kirjaudu_sisaan(self, tunnus, salasana):
+        kayttaja = self.tarkasta_kayttajatunnus(tunnus)
+
+        if not kayttaja:
+            return False
+        # hash = kayttaja[2]
+        if not check_password_hash(kayttaja[2], salasana):
+            return False
+        
+        session["tunnus"] = tunnus
+        session["kayttaja_id"] = kayttaja[0]
+        session["csrf_token"] = token_hex(16)
+
+        return True
+
+    def kirjaudu_ulos(self):
+        del session["tunnus"]
+        del session["kayttaja_id"]
+        del session["csrf_token"]
+
 
 kayttajat = Kayttajat()

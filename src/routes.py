@@ -1,5 +1,5 @@
 from flask import request, redirect, render_template
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 from vinkkikirjasto import Vinkkikirjasto
 from kayttajat import Kayttajat
 from app import app
@@ -17,19 +17,18 @@ def luo_vinkki():
 
 @app.route("/kirjautuminen", methods=["POST"])
 def kirjautuminen():
-    kayttajatunnus = request.form["kayttajatunnus"]
+    tunnus = request.form["kayttajatunnus"]
     salasana = request.form["salasana"]
-    kayttaja = kayttajat.tarkasta_kayttajatunnus(kayttajatunnus)
-
-    if not kayttaja:
-        print("Käyttäjätunnus on väärin")
+    
+    if not kayttajat.kirjaudu_sisaan(tunnus, salasana):
+        print("Käyttäjätunnus tai salasana väärin")
         return redirect("/")
+    
+    return redirect("/lukuvinkit")
 
-    hash_value = kayttaja.salasana
-    if check_password_hash(hash_value, salasana):
-        print("Kirjauduttu sisään")
-        return redirect("/lukuvinkit")
-    print("Salasana on väärin")
+@app.route("/kirjaudu_ulos")
+def kirjaudu_ulos():
+    kayttajat.kirjaudu_ulos()
     return redirect("/")
 
 @app.route("/rekisterointi", methods=["GET"])

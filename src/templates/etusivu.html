@@ -13,6 +13,10 @@ Lukuvinkit
 
 <body>
     <p>Tervetuloa! </p>
+    {% if session.tunnus %}
+        <p>Olet kirjautunut nimellä {{ session.tunnus }}.<br>
+        <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>
+    {% else %}
     <form action="/kirjautuminen" method="POST">
         <h2>Tunnus:</h2>
         <br>
@@ -20,13 +24,12 @@ Lukuvinkit
         <h2>Salasana:</h2>
         <input type="password" name="salasana"></p>
         <input type="submit" value="Kirjaudu">
-
     </form>
 
     <form method="get" action="/rekisterointi">
         <button type="rekisteroidy">Rekisteröidy</button>
     </form>
-
+    {% endif %}
 </body>
 
 <h3>Selaa lukuvinkkejä</h3>

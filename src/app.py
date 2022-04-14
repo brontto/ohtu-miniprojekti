@@ -9,6 +9,7 @@ def create_app():
     load_dotenv()
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = \
         getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
+    flask_app.secret_key = getenv('SECRET_KEY')
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(flask_app)
     return flask_app
