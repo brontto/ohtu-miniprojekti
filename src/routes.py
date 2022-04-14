@@ -1,5 +1,4 @@
 from flask import request, redirect, render_template
-from werkzeug.security import generate_password_hash
 from vinkkikirjasto import Vinkkikirjasto
 from kayttajat import Kayttajat
 from app import app
@@ -41,16 +40,15 @@ def luo_uusi_kayttaja():
     salasana = request.form["salasana"]
     salasana2 = request.form["salasana_varmistus"]
 
-    tunnus_olemassa = kayttajat.tarkasta_kayttajatunnus(kayttajatunnus)
+    if not salasana == salasana2:
+        error = "Salasanat eivät täsmää"
+        return render_template("rekisterointi.html", error=error)
 
-    if tunnus_olemassa:
+    if not kayttajat.lisaa_uusi_kayttaja(kayttajatunnus, salasana):
         error = "käyttäjätunnus on jo olemassa"
         return render_template("rekisterointi.html", error=error)
 
-    if salasana == salasana2:
-        hash_salasana = generate_password_hash(salasana)
-        kayttajat.lisaa_uusi_kayttaja(kayttajatunnus,hash_salasana)
-    return redirect("/")
+    return redirect("/lukuvinkit")
 
 @app.route("/lukuvinkit", methods=["GET"])
 def render_lukuvinkit():

@@ -1,6 +1,7 @@
 from secrets import token_hex
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 from flask import session
+from sqlalchemy import exc
 from kayttaja_repository import kayttajarepositorio as default_kayttajarepo
 
 
@@ -10,7 +11,12 @@ class Kayttajat:
         self.kayttajat = kayttajarepo
 
     def lisaa_uusi_kayttaja(self, tunnus, salasana):
-        return self.kayttajat.lisaa_uusi_kayttaja(tunnus, salasana)
+        try:
+            salasana_hash = generate_password_hash(salasana)
+            self.kayttajat.lisaa_uusi_kayttaja(tunnus, salasana_hash)
+        except exc.IntegrityError:
+            return False
+        return self.kirjaudu_sisaan(tunnus, salasana)
 
     def tarkasta_kayttajatunnus(self, tunnus):
         return self.kayttajat.tarkasta_sisaankirjautuminen(tunnus)
@@ -36,5 +42,6 @@ class Kayttajat:
         del session["tunnus"]
         del session["kayttaja_id"]
         del session["csrf_token"]
+
 
 kayttajat = Kayttajat()
