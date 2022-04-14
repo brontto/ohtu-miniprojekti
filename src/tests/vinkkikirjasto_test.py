@@ -30,6 +30,24 @@ class TestVinkkikirjasto(unittest.TestCase):
         maara = len(self.vinkkikirjasto.hae_kaikki_vinkit())
         self.assertEqual(maara, 1)
 
+    def test_uuden_vinkin_lisaaminen_ei_onnistu_ilman_otsikkoa(self):
+        self.vinkkikirjasto.lisaa_uusi_vinkki("", "osoite.fi")
+        maara = len(self.vinkkikirjasto.hae_kaikki_vinkit())
+        self.assertEqual(maara, 0)
+
+    def test_uuden_vinkin_lisaaminen_ei_onnistu_ilman_osoitetta(self):
+        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko", "")
+        maara = len(self.vinkkikirjasto.hae_kaikki_vinkit())
+        self.assertEqual(maara, 0)
+
+    def test_uuden_vinkin_lisaaminen_ei_onnistu_jos_url_ei_kelpaa(self):
+        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko1", "www.ur l.fi")
+        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko2", "http:.")
+        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko3", "https:.")
+        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko4", "wwwurlfi")
+        maara = len(self.vinkkikirjasto.hae_kaikki_vinkit())
+        self.assertEqual(maara, 0)
+
     def test_uusimman_vinkin_haku(self):
         self.vinkkikirjasto.lisaa_uusi_vinkki("Helinä-keiju", "https://fi.wikipedia.org/wiki/Helinä-keiju")
         self.vinkkikirjasto.lisaa_uusi_vinkki("Keijukainen", "https://fi.wikipedia.org/wiki/Keijukainen")
