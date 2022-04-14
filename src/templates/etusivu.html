@@ -13,6 +13,10 @@ Lukuvinkit
 
 <body>
     <p>Tervetuloa! </p>
+    {% if error %}
+    <p>Error: {{error}}</p>
+    {% endif %}
+    
     {% if session.tunnus %}
         <p>Olet kirjautunut nimellä {{ session.tunnus }}.<br>
         <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>

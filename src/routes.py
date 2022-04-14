@@ -20,8 +20,8 @@ def kirjautuminen():
     salasana = request.form["salasana"]
 
     if not kayttajat.kirjaudu_sisaan(tunnus, salasana):
-        print("Käyttäjätunnus tai salasana väärin")
-        return redirect("/")
+        error = "Käyttäjätunnus tai salasana väärin"
+        return render_etusivu(error)
 
     return redirect("/lukuvinkit")
 
@@ -53,10 +53,10 @@ def luo_uusi_kayttaja():
 @app.route("/lukuvinkit", methods=["GET"])
 def render_lukuvinkit():
     vinkkilista = vinkkikirjasto.hae_kaikki_vinkit()
-    return render_template("lukuvinkit.html", vinkkilista = vinkkilista)
+    return render_template("lukuvinkit.html", vinkkilista=vinkkilista)
 
 @app.route("/")
-def render_etusivu():
+def render_etusivu(error=None):
     vinkkilista = vinkkikirjasto.hae_kaikki_vinkit()
-    return render_template("etusivu.html", vinkkilista = vinkkilista)
+    return render_template("etusivu.html", vinkkilista=vinkkilista, error=error)
     
