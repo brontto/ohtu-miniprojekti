@@ -1,0 +1,35 @@
+.header {
+    background: rgb(54, 184, 50);
+    font-weight: bold;
+    padding-bottom: 0.4em;
+    font-size: 2em;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    animation: bgcolor infinite 20s;
+
+}
+
+h1
+{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    font-size: 4em;
+    color: rgb(221, 118, 118);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate (-50%,-50%);
+    text-align: center;
+}
+
+p {
+    color: #302f2f;
+    background-color:rgb(128, 59, 59);
+    font-size: 1.1em;
+    font-family: helvetica, sans-serif;
+}
