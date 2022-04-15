@@ -1,6 +1,7 @@
 #!/bin/bash
 
-poetry run python3 src/index.py &
+export FLASK_APP=src/index.py 
+poetry run python3 -m flask run &
 
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:5000/ping)" != "200" ]]; 
   do sleep 1; 
