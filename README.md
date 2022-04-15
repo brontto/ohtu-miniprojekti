@@ -20,45 +20,28 @@ Ohtu-miniprojekti
 ## Heroku 
 [Heroku App](https://damp-dawn-78777.herokuapp.com/)
 
-## Sovelluksen konfigurointi
+## Sovelluksen asentaminen
 
-Luo juurihakemistoon tiedosto *.env* ja kopioi sinne tiedoston [*.env.template*](https://github.com/brontto/ohtu-miniprojekti/blob/main/.env.template) sisältö. Aseta .env-tiedostossa käyttämäsi tietokannan osoite ja salainen avain.
+- Asenna PostgreSQL
+- Asenna riippuvuudet komennolla `poetry install`
+- Luo juurihakemistoon tiedosto *.env* ja kopioi sinne tiedoston [*.env.template*](https://github.com/brontto/ohtu-miniprojekti/blob/main/.env.template) sisältö. Aseta .env-tiedostossa muuttujaan DATABASE_URL käyttämäsi tietokannan osoite ja muuttujaan SECRET_KEY oma salainen avaimesi.
 
 Salaisen avaimen luominen onnistuu esim. Python-tulkissa komennoilla
 ``` python
 import secrets
 secrets.token_hex(16)
 ```
+- Alusta tietokanta komennolla `poetry run python3 src/initialize_database.py`
+- Käynnistä sovellus komennolla `poetry run invoke start`
 
-## Tietokannan käyttöönotto
 
-Asenna PostgreSQL
-
-Asenna uudet riippuvuudet 
-```
-poetry install
-```
-Luo juurihakemistoon tiedosto *.env* ja lisää sinne rivi
-```
-DATABASE_URL=postgresql:///database_name
-```
-missä `database_name` on käyttämäsi tietokannan nimi.
-
-Alusta tietokantataulut komennolla
-```
-psql < schema.sql
-```
 ## Testaaminen
 
 Testit alustavat tietokannan jokaisella suorituskerralla joten niitä varten on hyvä luoda oma tietokanta. Siirry Postgresql:n komentoriville komennolla `psql` ja suorita siellä komento
 ```
 CREATE DATABASE testitietokanta;
 ```
-Luo projektin juurihakemistoon tiedosto *.env.test* ja lisää sinne rivi
-```
-DATABASE_URL=postgresql:///database_name
-```
-missä tietokannan nimi on äsken luomasi testitietokannan nimi.
+Luo projektin juurihakemistoon tiedosto *.env.test* ja kopioi sinne tiedoston [*.env.template*](https://github.com/brontto/ohtu-miniprojekti/blob/main/.env.template) sisältö. Aseta tietokannan osoitteeksi äsken luomasi testitietokannan osoite ja luo myös uusi salainen avain.
 
 ### Yksikkötestit
 
@@ -66,3 +49,9 @@ Suorita yksikkötestit komennolla
 ```
 poetry run invoke test
 ```
+
+### Hyväksymistestit
+
+Hyväksymistesteissä [(src/tests/robot)](https://github.com/brontto/ohtu-miniprojekti/tree/main/src/tests/robot) käytetään Robot Frameworkia.
+
+Käynnistä testien suorittamista varten Flask-palvelin komennolla `poetry run dotenv -f .env.test run -- python3 src/index.py`. Suorita testit toisessa terminaali-ikkunassa komennolla `poetry run robot src/tests/robot`.  
