@@ -30,7 +30,7 @@ class Vinkkikirjasto:
         url = url.strip()
         if len(url) < 8:
             return False
-        if " " or "http://http" in url or not "." in url:
+        if " " in url or "http://http" in url or not "." in url:
             return False
         return True
 
