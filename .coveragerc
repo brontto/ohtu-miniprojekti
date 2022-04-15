@@ -1,3 +1,11 @@
 [run]
 source = src
-omit = src/index.py, src/**/__init__.py, src/tests/**, src/VinkkikirjastoLibrary.py, src/app.py
+omit = src/index.py,
+    src/**/__init__.py,
+    src/tests/**,
+    src/VinkkikirjastoLibrary.py,
+    src/AppLibrary.py,
+    src/app.py,
+    src/routes.py,
+    src/db.py,
+    src/initialize_database.py
