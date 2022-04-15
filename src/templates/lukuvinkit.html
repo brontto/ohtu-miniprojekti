@@ -9,6 +9,10 @@ Lukuvinkit
 {% endblock %}
 
 {% block body %}
+{% if session.tunnus %}
+    <p>Olet kirjautunut nimellä {{ session.tunnus }}.<br>
+    <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>
+{% endif %}
 <h1>Lukuvinkit</h1>
 
 {% for vinkki in vinkkilista %}

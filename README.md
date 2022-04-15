@@ -20,6 +20,16 @@ Ohtu-miniprojekti
 ## Heroku 
 [Heroku App](https://damp-dawn-78777.herokuapp.com/)
 
+## Sovelluksen konfigurointi
+
+Luo juurihakemistoon tiedosto *.env* ja kopioi sinne tiedoston [*.env.template*](https://github.com/brontto/ohtu-miniprojekti/blob/main/.env.template) sisältö. Aseta .env-tiedostossa käyttämäsi tietokannan osoite ja salainen avain.
+
+Salaisen avaimen luominen onnistuu esim. Python-tulkissa komennoilla
+``` python
+import secrets
+secrets.token_hex(16)
+```
+
 ## Tietokannan käyttöönotto
 
 Asenna PostgreSQL

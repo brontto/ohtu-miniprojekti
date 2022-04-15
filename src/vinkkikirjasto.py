@@ -6,11 +6,6 @@ class Vinkkikirjasto:
     def __init__(self, vinkkirepo=default_vinkkirepo):
         self.vinkit = vinkkirepo
 
-    # def esimerkki_vinkit(self):
-    #     self.testivinkit.append(Lukuvinkki("Helinä-keiju", "https://fi.wikipedia.org/wiki/Helinä-keiju"))
-    #     self.testivinkit.append(Lukuvinkki("Keijukainen", "https://fi.wikipedia.org/wiki/Keijukainen"))
-    #     self.testivinkit.append(Lukuvinkki("Keiju tuotteet", "https://www.keiju.fi/tuotteet/"))
-
     def hae_kaikki_vinkit(self):
         return self.vinkit.hae_kaikki_vinkit()
 
