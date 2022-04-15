@@ -42,15 +42,10 @@ jobs:
         uses: codecov/codecov-action@v2
       - name: Analysing the code with pylint
         run: poetry run pylint src
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
-        with:
-          chrome-version: stable
       - name: Setup chromedriver
         uses: nanasess/setup-chromedriver@v1
       - name: Configure chromedriver
         run: |
-          google-chrome --version --headless --remote-debugging-port=9222
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
