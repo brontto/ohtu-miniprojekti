@@ -55,6 +55,7 @@ coverage.xml
 log.html
 output.xml
 report.html
+selenium-screenshot*
 
 # Translations
 *.mo
