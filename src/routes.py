@@ -69,4 +69,8 @@ def reset_database():
     kayttajat.poista_kaikki_kayttajat()
     vinkkikirjasto.poista_kaikki_vinkit()
     return redirect("/")
+
+@app.route("/ping")
+def ping():
+    return "pong"
     
