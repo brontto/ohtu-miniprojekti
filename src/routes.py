@@ -72,5 +72,5 @@ def reset_database():
 
 @app.route("/ping")
 def ping():
-    return redirect("/")
+    return "pong"
     
