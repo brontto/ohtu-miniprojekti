@@ -5,8 +5,6 @@ class AppLibrary:
     def __init__(self):
         self._base_url = "http://localhost:5000"
 
-        self.reset_application()
-
     def create_user(self, username, password):
         data = {
             "kayttajatunnus": username,
@@ -18,3 +16,6 @@ class AppLibrary:
 
     def reset_application(self):
         requests.get(f"{self._base_url}/tyhjenna_tietokannat")
+
+    def logout(self):
+        requests.get(f"{self._base_url}/kirjaudu_ulos")

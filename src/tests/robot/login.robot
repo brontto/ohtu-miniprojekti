@@ -10,7 +10,6 @@ Login With Correct Credentials
     Set Password  keijusana
     Submit Credentials
     Login Should Succeed
-    Logout
 
 Login With Incorrect Username
     Set Username  keijo
@@ -37,6 +36,8 @@ Logged In User Can Add A Lukuvinkki
 
 *** Keywords ***
 Create User And Go To Main Page
+    Reset Application
+    Logout
     Create User  keiju  keijusana
     Go To Main Page
     Main Page Should Be Open
