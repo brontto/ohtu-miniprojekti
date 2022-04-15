@@ -51,7 +51,6 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
       - name: Run Robot
         run: bash run_robot_tests.sh
-#        env:
- #         DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
-  #        SECRET_KEY: sk12345
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
         
