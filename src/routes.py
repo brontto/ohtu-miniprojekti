@@ -23,6 +23,8 @@ def kirjautuminen():
         error = "Käyttäjätunnus tai salasana väärin"
         return render_etusivu(error)
 
+    kayttajat.aseta_sessio(tunnus)
+
     return redirect("/lukuvinkit")
 
 @app.route("/kirjaudu_ulos")
@@ -47,6 +49,8 @@ def luo_uusi_kayttaja():
     if not kayttajat.lisaa_uusi_kayttaja(kayttajatunnus, salasana):
         error = "käyttäjätunnus on jo olemassa"
         return render_template("rekisterointi.html", error=error)
+    kayttajat.kirjaudu_sisaan(kayttajatunnus, salasana)
+    kayttajat.aseta_sessio(kayttajatunnus)
 
     return redirect("/lukuvinkit")
 

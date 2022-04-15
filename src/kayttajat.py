@@ -16,31 +16,33 @@ class Kayttajat:
             self.kayttajat.lisaa_uusi_kayttaja(tunnus, salasana_hash)
         except exc.IntegrityError:
             return False
-        return self.kirjaudu_sisaan(tunnus, salasana)
+        return True
 
-    def tarkasta_kayttajatunnus(self, tunnus):
-        return self.kayttajat.tarkasta_sisaankirjautuminen(tunnus)
+    def hae_kayttaja(self, tunnus):
+        return self.kayttajat.hae_kayttaja_tunnuksella(tunnus)
 
     def hae_kaikki_kayttajat(self):
         return self.kayttajat.hae_kaikki_kayttajat()
 
     def kirjaudu_sisaan(self, tunnus, salasana):
-        kayttaja = self.tarkasta_kayttajatunnus(tunnus)
+        kayttaja = self.hae_kayttaja(tunnus)
 
         if not kayttaja:
             return False
-        if not check_password_hash(kayttaja[2], salasana):
+        if not self.salasana_oikein(kayttaja, salasana):
             return False
+        return True
 
+    def aseta_sessio(self, tunnus):
         session["tunnus"] = tunnus
-        session["kayttaja_id"] = kayttaja[0]
         session["csrf_token"] = token_hex(16)
 
-        return True
+    def salasana_oikein(self, kayttaja, salasana):
+        salasana_hash = kayttaja[2]
+        return check_password_hash(salasana_hash, salasana)
 
     def kirjaudu_ulos(self):
         del session["tunnus"]
-        del session["kayttaja_id"]
         del session["csrf_token"]
 
 

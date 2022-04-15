@@ -16,7 +16,7 @@ class TestKayttajaRepository(unittest.TestCase):
 
     def test_olemassa_oleva_tunnus_loytyy_tietokannasta(self):
         kayttajarepositorio.lisaa_uusi_kayttaja("maija", "kala")
-        onko_olemassa = kayttajat.tarkasta_kayttajatunnus("maija")
+        onko_olemassa = kayttajat.hae_kayttaja("maija")
         self.assertTrue(onko_olemassa.tunnus, "maija")
 
     def test_kayttajan_id_loytyy(self):
