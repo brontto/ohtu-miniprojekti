@@ -27,6 +27,9 @@ Go To Main Page
 Go To Register Page 
     Go To  ${REGISTER URL}
 
+Go To Lukuvinkit Page
+    Go To  ${LUKUVINKIT URL}
+
 Register Page Should Be Open
     Title Should Be  Rekisteröinti
 

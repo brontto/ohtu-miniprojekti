@@ -24,6 +24,17 @@ Login With Incorrect Password
     Submit Credentials
     Login Should Fail With Message  Käyttäjätunnus tai salasana väärin
 
+Logged Out User Cannot Add A Lukuvinkki
+    Go To Lukuvinkit Page
+    Add New Should Not Be Available
+
+Logged In User Can Add A Lukuvinkki
+    Set Username  keiju
+    Set Password  keijusana
+    Submit Credentials
+    Add New Should Be Available
+
+
 *** Keywords ***
 Create User And Go To Main Page
     Create User  keiju  keijusana
@@ -48,5 +59,11 @@ Login Should Fail With Message
     [Arguments]  ${message}
     Main Page Should Be Open
     Page Should Contain  ${message}
+
+Add New Should Be Available
+    Page Should Contain  Luo uusi lukuvinkki
+
+Add New Should Not Be Available
+    Page Should Not Contain  Luo uusi lukuvinkki
 
     
