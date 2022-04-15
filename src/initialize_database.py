@@ -16,6 +16,7 @@ def luo_taulut():
             otsikko TEXT,
             linkki TEXT,
             kayttaja_id INTEGER REFERENCES kayttajat
+            ON DELETE CASCADE
         );
     """)
     db.session.commit()

@@ -63,4 +63,10 @@ def render_lukuvinkit():
 def render_etusivu(error=None):
     vinkkilista = vinkkikirjasto.hae_kaikki_vinkit()
     return render_template("etusivu.html", vinkkilista=vinkkilista, error=error)
+
+@app.route("/tyhjenna_tietokannat")
+def reset_database():
+    kayttajat.poista_kaikki_kayttajat()
+    vinkkikirjasto.poista_kaikki_vinkit()
+    return redirect("/")
     

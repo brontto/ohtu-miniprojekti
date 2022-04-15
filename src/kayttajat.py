@@ -24,6 +24,9 @@ class Kayttajat:
     def hae_kaikki_kayttajat(self):
         return self.kayttajat.hae_kaikki_kayttajat()
 
+    def poista_kaikki_kayttajat(self):
+        self.kayttajat.poista_kaikki()
+
     def kirjaudu_sisaan(self, tunnus, salasana):
         kayttaja = self.hae_kayttaja(tunnus)
 
