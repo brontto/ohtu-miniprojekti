@@ -43,7 +43,7 @@ jobs:
       - name: Analysing the code with pylint
         run: poetry run pylint src
       - name: Setup chromedriver
-        uses: nanasess/setup-chromedriver@master
+        uses: nanasess/setup-chromedriver@v1
       - name: Configure chromedriver
         run: |
           export DISPLAY=:99
