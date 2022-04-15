@@ -9,9 +9,12 @@ class AppLibrary:
 
     def create_user(self, username, password):
         data = {
-            "kauttajatunnus": username,
+            "kayttajatunnus": username,
             "salasana": password,
             "salasana_varmistus": password
         }
 
-        requests.post(f"{self._base_url}/rekisterointi", data=data)
+        requests.post(f"{self._base_url}/luo_uusi_kayttaja", data=data)
+
+    def reset_application(self):
+        requests.get(f"{self._base_url}/tyhjenna_tietokannat")
