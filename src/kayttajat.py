@@ -45,8 +45,9 @@ class Kayttajat:
         return check_password_hash(salasana_hash, salasana)
 
     def kirjaudu_ulos(self):
-        del session["tunnus"]
-        del session["csrf_token"]
+        if session["tunnus"]:
+            del session["tunnus"]
+            del session["csrf_token"]
 
 
 kayttajat = Kayttajat()
