@@ -35,6 +35,8 @@ secrets.token_hex(16)
 - Käynnistä sovellus komennolla `poetry run invoke start`
 
 
+
+
 ## Testaaminen
 
 Testit alustavat tietokannan jokaisella suorituskerralla joten niitä varten on hyvä luoda oma tietokanta. Siirry Postgresql:n komentoriville komennolla `psql` ja suorita siellä komento
