@@ -1,41 +1,55 @@
-.header {
-    background: rgba(76, 65, 130, 0.313);
-    font-size: 5em;
-    color: rgba(73, 61, 61);
-    font-weight: bold; 
-    padding-top: 15px;
-    padding-bottom: 15px;
 
+
+.header {
+    background: rgba(25, 24, 37, 0.788);
+    font-size: 5em;
+    color: rgb(241, 233, 233);
+    font-weight: bold; 
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 .header h1 {
-    font-size: 90px;
-    color: rgb(246, 246, 246);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.524);
+    color: rgb(241, 233, 233);
+    font-size: 50px;
+    padding-left: 12px;
 }
 
 .header form {
     margin-bottom: 15px;
+
 }
 
 .header p {
     font-size: 20px;
-    color: rgba(73, 61, 61);
+    color: rgb(241, 233, 233);
 }
 
 .header a {
     font-size: 17px;
+    color: rgb(241, 233, 233);
+    text-decoration: underline;
+}
+
+h2 {
+    padding-top: 20px;
 }
 
 li.list-group-item {
-    background-color: snow;
-    padding: 0px;
+    background-color:snow;
+    padding: 8px;
 }
 
 li.list-group-item p {
    font-size: 20px;
+   margin: 0px;
    font-weight: bold; 
 }
+li.list-group-item a {
+    text-decoration: underline;
+    color: rgba(25, 24, 37, 0.788);
+
+}    
 
 .luo {
     margin-top: 10px;
@@ -45,10 +59,14 @@ li.list-group-item p {
     color: rgb(177, 77, 77);
 }
 
+.uusi {
+    padding-left: 8px;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: snow;
+    background-color:snow;
 }
 
 

@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    
+
     <div class="container">
         <ul class="list-group list-group-flush">
             {% for vinkki in vinkkilista %}
@@ -36,17 +36,17 @@
     
     {% if session.tunnus %}
     <div class="container">
-
-        <form action="/luo_vinkki" method="POST">
-            <div>Otsikko:</div> 
-                <input type="text" name="otsikko">
-            <div>Url:</div> 
-            <input type="text" name="url">
-            <div class="luo">
-                <input type="submit" value="Luo uusi lukuvinkki" class="btn btn-primary">
-            </div>
-        </form>
-    
+        <div class="uusi">
+            <form action="/luo_vinkki" method="POST">
+                <div>Otsikko:</div> 
+                    <input type="text" name="otsikko">
+                <div>Url:</div> 
+                <input type="text" name="url">
+                <div class="luo">
+                    <input type="submit" value="Luo uusi lukuvinkki" class="btn btn-secondary">
+                </div>
+            </form>
+        </div>
     </div>
     {% endif %}
 
