@@ -1,5 +1,5 @@
 .header {
-    background: rgba(18, 122, 14, 0.561);
+    background: rgba(76, 65, 130, 0.313);
     font-size: 5em;
     color: rgba(73, 61, 61);
     font-weight: bold; 
@@ -10,7 +10,8 @@
 
 .header h1 {
     font-size: 90px;
-    color: rgba(73, 61, 61);
+    color: rgb(246, 246, 246);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.524);
 }
 
 .header form {
@@ -38,6 +39,10 @@ li.list-group-item p {
 
 .luo {
     margin-top: 10px;
+}
+
+.virhe {
+    color: rgb(177, 77, 77);
 }
 
 body {

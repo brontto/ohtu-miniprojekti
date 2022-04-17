@@ -2,34 +2,64 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Rekisteröinti</title>
 </head>
 
-{% block title %}
-Rekisteröinti
-{% endblock %}
-
-{% block body %}
-<h1>Rekisteröidy lukuvinkit jäseneksi</h1>
-
-
 <body>
-    <p>Etkö omista vielä tunnusta? </p>
-    <p>Rekisteröidy jäseneksi niin pääset lisäämään uusia lukuvinkkejä listallesi </p>
-
-    {% if error %}
-    <p>Error: {{error}}</p>
-    {% endif %}
-    <form action="/luo_uusi_kayttaja" method="POST">
-        <h2>Luo tunnus:</h2>
-        <br>
-        <input type="text" name="kayttajatunnus"></p>
-        <h2>Anna salasana:</h2>
-        <input type="password" name="salasana"></p>
-        <h2>Syötä salasana uudestaan:</h2>
-        <input type="password" name="salasana_varmistus"></p>
-        <input type="submit" value="Rekisteröidy"></p>
-    </form>
+    <br>
+    <br>
+<div class="container h-50 border border-lightdark shadow">
+    <div class="row align-items-center h-100">
+        <div class="col-10 mx-auto">
+            <div class="d-flex justify-content-center">
+                <h2>Rekisteröidy lukuvinkit -sivun jäseneksi</h2>
+            </div>
+            <div class="d-flex justify-content-center"> 
+                <br>
+                <p>Etkö omista vielä tunnusta? </p>
+            </div>
+            <div class="d-flex justify-content-center"> 
+                <p>Rekisteröidy jäseneksi niin pääset lisäämään uusia lukuvinkkejä listallesi </p>
+            </div>
+        
+            {% if error %}
+            <div class="virhe">
+                <div class="d-flex justify-content-center">
+                    <p>Error: {{error}}</p>
+                </div>
+            </div>
+            {% endif %}
+            
+            <div class="d-flex justify-content-center"> 
+                <form action="/luo_uusi_kayttaja" method="POST" >
+                    </div>
+                            <div class="d-flex justify-content-center">
+                            <h2>Luo tunnus</h2>
+                            </div>
+                    <div class="d-flex justify-content-center">
+                            <input type="text" name="kayttajatunnus"></p>
+                    </div>
+                            <div class="d-flex justify-content-center">
+                            <h2>Anna salasana</h2>
+                            </div>
+                    <div class="d-flex justify-content-center">
+                            <input type="password" name="salasana"></p>
+                    </div>
+                            <div class="d-flex justify-content-center">
+                            <h2>Syötä salasana uudestaan</h2>
+                            </div>
+                    <div class="d-flex justify-content-center">
+                    
+                            <input type="password" name="salasana_varmistus"></p>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-center">        
+                            <input type="submit" value="Rekisteröidy"></p>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
-{% endblock %}
