@@ -2,52 +2,51 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Lukuvinkit-etusivu</title>
 </head>
 
-{% block title %}
-Lukuvinkit
-{% endblock %}
-
-{% block body %}
-<h1>Lukuvinkit</h1>
-
 <body>
-    <p>Tervetuloa! </p>
-    {% if error %}
-    <p>Error: {{error}}</p>
-    {% endif %}
-    
-    {% if session.tunnus %}
-        <p>Olet kirjautunut nimellä {{ session.tunnus }}.<br>
-        <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>
-    {% else %}
-    <form action="/kirjautuminen" method="POST">
-        <h2>Tunnus:</h2>
-        <br>
-        <input type="text" name="kayttajatunnus"></p>
-        <h2>Salasana:</h2>
-        <input type="password" name="salasana"></p>
-        <input type="submit" value="Kirjaudu">
-    </form>
 
-    <form method="get" action="/rekisterointi">
-        <button type="rekisteroidy">Rekisteröidy</button>
-    </form>
-    {% endif %}
+    <section class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 d-flex justify-content-start">
+                    <h1>Lukuvinkit</h1>
+                </div>
+                {% if session.tunnus %}
+                    <div class="col d-flex justify-content-end">
+                        <p>Olet kirjautunut nimellä {{ session.tunnus }}.<br>
+                        <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>
+                    </div>
+                {% else %}
+                    <div class="col-4 d-flex flex-column justify-content-end">
+                        <form action="/kirjautuminen" method="POST">
+                                <input type="text" name="kayttajatunnus" class="form-control" placeholder="Käyttäjätunnus"></p>
+                                <input type="password" name="salasana" class="form-control" placeholder="Salasana"></p>
+                                <div class="d-flex justify-content-end">
+                                    <input type="submit" value="Kirjaudu" class="btn btn-primary">
+                                </div>
+                                {% if error %}
+                                    <p>Error: {{error}} </p>
+                                {% endif %}
+                        </form>
+                        <div class="d-flex justify-content-end">
+                            <a href="/rekisterointi" class="link">Rekisteröidy täällä</a>
+                        </div>   
+                    </div>
+                {% endif %}   
+            </div> 
+        </div>               
+    </section>   
+
+    <h3>Selaa lukuvinkkejä</h3>
+    <ul class="list-group list-group-flush">
+        {% for vinkki in vinkkilista %}
+            <li class="list-group-item">
+                <p> {{ vinkki.otsikko }} </p>
+                <class="vinkki"><a href={{vinkki.linkki}}>{{ vinkki.linkki }}</a> 
+            </li>    
+        {% endfor %}
+    </ul>
+
 </body>
-
-<h3>Selaa lukuvinkkejä</h3>
-
-{% for vinkki in vinkkilista %}
-    <div> 
-        Otsikko: {{ vinkki.otsikko }} </br>
-        Url: <class="vinkki"><a href={{vinkki.linkki}}>{{ vinkki.linkki }}</a> 
-    </div>
-    <p>
-        
-{% endfor %}
-
-
-{% endblock %}
 

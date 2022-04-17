@@ -5,38 +5,51 @@
     <title>Lukuvinkit</title>
 </head>
 
-{% block title %}
-Lukuvinkit
-{% endblock %}
-
-{% block body %}
-{% if session.tunnus %}
-    <p>Olet kirjautunut nimellä {{ session.tunnus }}.<br>
-    <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>
-{% endif %}
-<h1>Lukuvinkit</h1>
-
-{% for vinkki in vinkkilista %}
-    <div> 
-        Otsikko: {{ vinkki.otsikko }} </br>
-        Url: <class="vinkki"><a href={{vinkki.linkki}}>{{ vinkki.linkki }}</a> 
-    </div>
-    <p>
-        
-{% endfor %}
-
-{% if session.tunnus %}
 <body>
-    <p>
-    <form action="/luo_vinkki" method="POST">
-        <div>Otsikko:</div> 
-        <input type="text" name="otsikko">
-        <div>Url:</div> 
-        <input type="text" name="url">
-        <button type="submit">Luo uusi lukuvinkki</button>
-    </form>
+    <section class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 d-flex justify-content-start">
+                    <h1>Lukuvinkit</h1>
+                </div>
+                <div class="col-3 d-flex justify-content-end">
+                     {% if session.tunnus %}
+                        <p>Hei {{ session.tunnus }}!<br>
+                        <a href="/kirjaudu_ulos">Kirjaudu ulos</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <ul class="list-group list-group-flush">
+            {% for vinkki in vinkkilista %}
+                <li class="list-group-item">
+                    <p> {{ vinkki.otsikko }} </p>
+                    <class="vinkki"><a href={{vinkki.linkki}}>{{ vinkki.linkki }}</a> 
+                </li>    
+            {% endfor %}
+        </ul>
+    </div>
+
+    
+    {% if session.tunnus %}
+    <div class="container">
+
+        <form action="/luo_vinkki" method="POST">
+            <div>Otsikko:</div> 
+                <input type="text" name="otsikko">
+            <div>Url:</div> 
+            <input type="text" name="url">
+            <div class="luo">
+                <input type="submit" value="Luo uusi lukuvinkki" class="btn btn-primary">
+            </div>
+        </form>
+    
+    </div>
+    {% endif %}
+
+
+
 </body>
-{% endif %}
-
-
-{% endblock %}

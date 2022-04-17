@@ -1,35 +1,49 @@
 .header {
-    background: rgb(54, 184, 50);
-    font-weight: bold;
-    padding-bottom: 0.4em;
-    font-size: 2em;
+    background: rgba(18, 122, 14, 0.561);
+    font-size: 5em;
+    color: rgba(73, 61, 61);
+    font-weight: bold; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+
 }
 
-body
-{
+.header h1 {
+    font-size: 90px;
+    color: rgba(73, 61, 61);
+}
+
+.header form {
+    margin-bottom: 15px;
+}
+
+.header p {
+    font-size: 20px;
+    color: rgba(73, 61, 61);
+}
+
+.header a {
+    font-size: 17px;
+}
+
+li.list-group-item {
+    background-color: snow;
+    padding: 0px;
+}
+
+li.list-group-item p {
+   font-size: 20px;
+   font-weight: bold; 
+}
+
+.luo {
+    margin-top: 10px;
+}
+
+body {
     margin: 0;
     padding: 0;
-    animation: bgcolor infinite 20s;
-
+    background-color: snow;
 }
 
-h1
-{
-    margin: 0;
-    padding: 0;
-    font-family: arial;
-    font-size: 4em;
-    color: rgb(221, 118, 118);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate (-50%,-50%);
-    text-align: center;
-}
 
-p {
-    color: #302f2f;
-    background-color:rgb(128, 59, 59);
-    font-size: 1.1em;
-    font-family: helvetica, sans-serif;
-}
