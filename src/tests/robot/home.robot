@@ -10,5 +10,5 @@ Main Page Open
     Main Page Should Be Open
 
 Click Register Link
-    Click Button  Rekisteröidy
+    Click Link  Rekisteröidy täällä
     Register Page Should Be Open

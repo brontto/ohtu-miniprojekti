@@ -62,7 +62,7 @@ Login Should Fail With Message
     Page Should Contain  ${message}
 
 Add New Should Be Available
-    Page Should Contain  Luo uusi lukuvinkki
+    Page Should Contain Button  Luo uusi lukuvinkki
 
 Add New Should Not Be Available
     Page Should Not Contain  Luo uusi lukuvinkki
