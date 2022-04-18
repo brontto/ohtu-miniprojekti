@@ -4,14 +4,14 @@ Library  ./AppLibrary.py
 
 *** Variables ***
 ${SERVER}  localhost:5000
-${BROWSER}  chrome
+${BROWSER}  headlesschrome
 ${DELAY}  0 seconds
 ${HOME URL}  http://${SERVER}
 ${LOGIN URL}  http://${SERVER}/kirjautuminen
 ${REGISTER URL}  http://${SERVER}/rekisterointi
 ${LUKUVINKIT URL}  http://${SERVER}/lukuvinkit
 ${LOGOUT URL}  http://${SERVER}/kirjaudu_ulos
-${RESET URL}  http://${SERVER}/reset
+${RESET URL}  http://${SERVER}/tyhjenna_tietokannat
 
 *** Keywords ***
 Open And Configure Browser

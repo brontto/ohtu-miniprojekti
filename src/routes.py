@@ -2,7 +2,7 @@ from flask import request, redirect, render_template, session
 from vinkkikirjasto import Vinkkikirjasto
 from kayttajat import Kayttajat
 from app import app
-from initialize_database import alusta_tietokanta
+
 
 vinkkikirjasto = Vinkkikirjasto()
 kayttajat = Kayttajat()
@@ -69,12 +69,6 @@ def render_lukuvinkit():
 def render_etusivu(error=None):
     vinkkilista = vinkkikirjasto.hae_kaikki_vinkit()
     return render_template("etusivu.html", vinkkilista=vinkkilista, error=error)
-
-@app.route("/reset")
-def reset():
-    alusta_tietokanta()
-    return redirect("/")
-    
 
 @app.route("/tyhjenna_tietokannat")
 def reset_database():
