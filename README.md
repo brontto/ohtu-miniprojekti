@@ -31,7 +31,7 @@ Salaisen avaimen luominen onnistuu esim. Python-tulkissa komennoilla
 import secrets
 secrets.token_hex(16)
 ```
-- Alusta tietokanta komennolla `poetry run python3 src/initialize_database.py`
+- Alusta tietokanta komennolla `poetry run invoke initialize`
 - Käynnistä sovellus komennolla `poetry run invoke start`
 
 
@@ -54,4 +54,4 @@ poetry run invoke test
 
 Hyväksymistesteissä [(src/tests/robot)](https://github.com/brontto/ohtu-miniprojekti/tree/main/src/tests/robot) käytetään Robot Frameworkia.
 
-Käynnistä testien suorittamista varten Flask-palvelin komennolla `poetry run dotenv -f .env.test run -- python3 src/index.py`. Suorita testit toisessa terminaali-ikkunassa komennolla `poetry run robot src/tests/robot`.  
+Käynnistä testien suorittamista varten Flask-palvelin komennolla `poetry run invoke robot-start`. Suorita testit toisessa terminaali-ikkunassa komennolla `poetry run invoke robot-test`.  
