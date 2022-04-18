@@ -4,13 +4,14 @@ Library  ./AppLibrary.py
 
 *** Variables ***
 ${SERVER}  localhost:5000
-${BROWSER}  headlesschrome
+${BROWSER}  chrome
 ${DELAY}  0 seconds
 ${HOME URL}  http://${SERVER}
 ${LOGIN URL}  http://${SERVER}/kirjautuminen
 ${REGISTER URL}  http://${SERVER}/rekisterointi
 ${LUKUVINKIT URL}  http://${SERVER}/lukuvinkit
 ${LOGOUT URL}  http://${SERVER}/kirjaudu_ulos
+${RESET URL}  http://${SERVER}/reset
 
 *** Keywords ***
 Open And Configure Browser
@@ -20,6 +21,9 @@ Open And Configure Browser
 
 Main Page Should Be Open
     Title Should Be  Lukuvinkit-etusivu
+
+Reset Application
+    Go To  ${RESET URL}
 
 Go To Main Page
     Go To  ${HOME URL}

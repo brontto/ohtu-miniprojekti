@@ -15,7 +15,7 @@ class AppLibrary:
         requests.post(f"{self._base_url}/luo_uusi_kayttaja", data=data)
 
     def reset_application(self):
-        requests.get(f"{self._base_url}/tyhjenna_tietokannat")
+        requests.get(f"{self._base_url}/reset")
 
     def logout(self):
         requests.get(f"{self._base_url}/kirjaudu_ulos")
