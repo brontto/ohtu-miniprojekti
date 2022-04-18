@@ -28,9 +28,9 @@ class Vinkkikirjasto:
 
     def onko_url_kelvollinen(self, url):
         url = url.strip()
-        if len(url) < 8:
+        if len(url) < 3:
             return False
-        if " " in url or "http://http" in url or not "." in url:
+        if " " in url or not "." in url:
             return False
         return True
 
