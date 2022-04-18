@@ -41,7 +41,7 @@ jobs:
       - name: Coverage report to Codecov
         uses: codecov/codecov-action@v2
       - name: Analysing the code with pylint
-        run: poetry run pylint src
+        run: poetry run pylint src --fail-under=9
       - name: Setup chromedriver
         uses: nanasess/setup-chromedriver@v1
       - name: Configure chromedriver
