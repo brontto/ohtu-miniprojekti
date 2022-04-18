@@ -10,7 +10,7 @@ kayttajat = Kayttajat()
 @app.route("/luo_vinkki", methods=["POST"])
 def luo_vinkki():
     otsikko = request.form["otsikko"]
-    url = "http://" + request.form["url"]
+    url = request.form["url"]
     kayttaja_id = session.get("kayttaja_id", 0)
     vinkkikirjasto.lisaa_uusi_vinkki(otsikko, url, kayttaja_id)
     return redirect("/lukuvinkit")
