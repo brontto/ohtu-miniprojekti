@@ -12,11 +12,11 @@ class Vinkkikirjasto:
     def hae_viimeksi_lisatty_vinkki(self):
         return self.vinkit.hae_uusin_vinkki()
 
-    def lisaa_uusi_vinkki(self, otsikko, url):
+    def lisaa_uusi_vinkki(self, otsikko, url, kayttaja_id):
         if self.onko_otsikko_kelvollinen(otsikko):
             if self.onko_url_kelvollinen(url):
                 uusi_vinkki = Lukuvinkki(otsikko, url)
-                self.vinkit.lisaa_uusi_vinkki(uusi_vinkki)
+                self.vinkit.lisaa_uusi_vinkki(uusi_vinkki, kayttaja_id)
 
     def poista_tama_vinkki(self, otsikko, url):#kesken
         for vinkki in self.vinkit:

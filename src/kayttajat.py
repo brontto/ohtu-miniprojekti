@@ -31,13 +31,14 @@ class Kayttajat:
         kayttaja = self.hae_kayttaja(tunnus)
 
         if not kayttaja:
-            return False
+            return None
         if not self.salasana_oikein(kayttaja, salasana):
-            return False
-        return True
+            return None
+        return kayttaja
 
-    def aseta_sessio(self, tunnus):
+    def aseta_sessio(self, tunnus, kayttaja_id):
         session["tunnus"] = tunnus
+        session["kayttaja_id"] = kayttaja_id
         session["csrf_token"] = token_hex(16)
 
     def salasana_oikein(self, kayttaja, salasana):
@@ -47,6 +48,7 @@ class Kayttajat:
     def kirjaudu_ulos(self):
         if session["tunnus"]:
             del session["tunnus"]
+            del session["kayttaja_id"]
             del session["csrf_token"]
 
 

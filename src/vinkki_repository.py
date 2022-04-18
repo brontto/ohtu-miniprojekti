@@ -4,12 +4,12 @@ class VinkkiRepository:
     def __init__(self):
         pass
 
-    def lisaa_uusi_vinkki(self, vinkki):
+    def lisaa_uusi_vinkki(self, vinkki, kayttaja_id):
         sql = "INSERT INTO lukuvinkit (otsikko, linkki, kayttaja_id) \
-            VALUES (:otsikko, :linkki, 1)"
+            VALUES (:otsikko, :linkki, :id)"
 
         db.session.execute(sql, {"otsikko": vinkki.get_otsikko(),
-            "linkki": vinkki.get_linkki()})
+            "linkki": vinkki.get_linkki(), "id": kayttaja_id})
         db.session.commit()
 
     def hae_uusin_vinkki(self):
