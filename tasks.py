@@ -19,3 +19,15 @@ def coverage_report(ctx):
 @task
 def lint(ctx):
     ctx.run("pylint src", pty=True)
+
+@task
+def initialize(ctx):
+    ctx.run("python3 src/initialize_database.py", pty=True)
+
+@task
+def robot_test(ctx):
+    ctx.run("robot src/tests/robot", pty=True)
+
+@task
+def robot_start(ctx):
+    ctx.run("dotenv -f .env.test run -- python3 src/index.py", pty=True)
