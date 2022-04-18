@@ -42,8 +42,6 @@ class TestVinkkikirjasto(unittest.TestCase):
 
     def test_uuden_vinkin_lisaaminen_ei_onnistu_jos_url_ei_kelpaa(self):
         self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko1", "www.ur l.fi", 1)
-        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko2", "http:.", 1)
-        self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko3", "https:.", 1)
         self.vinkkikirjasto.lisaa_uusi_vinkki("otsikko4", "wwwurlfi", 1)
         maara = len(self.vinkkikirjasto.hae_kaikki_vinkit())
         self.assertEqual(maara, 0)
