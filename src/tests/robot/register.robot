@@ -13,6 +13,12 @@ Register With Correct Credentials
     Register Should Succeed
     Page Should Contain  keiju
 
+Register With Incorrect Credentials
+    Go To Register Page 
+    Set Username  keiju
+    Submit Credentials
+    Page Should Contain  Error: Tarvitset myös salasanan
+
 *** Keywords ***
 Set Username
     [Arguments]  ${username}

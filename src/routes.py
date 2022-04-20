@@ -45,6 +45,10 @@ def luo_uusi_kayttaja():
     salasana = request.form["salasana"]
     salasana2 = request.form["salasana_varmistus"]
 
+    if not salasana:
+        error = "Tarvitset myös salasanan"
+        return render_template("rekisterointi.html", error=error) 
+    
     if not salasana == salasana2:
         error = "Salasanat eivät täsmää"
         return render_template("rekisterointi.html", error=error)

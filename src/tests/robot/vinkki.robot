@@ -15,6 +15,13 @@ Add New Vinkki
     Page Should Contain  Otsikko
     Page Should Contain  www.url.com
 
+Add New Vinkki Without Linkki
+    Login With Correct Credentials
+    Go To Lukuvinkit Page
+    Set Otsikko  väärä otsikko
+    Submit Vinkki
+    Page Should Not Contain  väärä otsikko
+
 *** Keywords ***
 Set Otsikko
     [Arguments]  ${otsikko}
