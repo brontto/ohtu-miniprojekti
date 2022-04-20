@@ -19,6 +19,13 @@ Open And Configure Browser
     Maximize Browser Window
     Set Selenium Speed  ${DELAY}
 
+Create User And Go To Main Page
+    Reset Application
+    Logout
+    Create User  keiju  keijusana
+    Go To Main Page
+    Main Page Should Be Open
+
 Main Page Should Be Open
     Title Should Be  Lukuvinkit-etusivu
 

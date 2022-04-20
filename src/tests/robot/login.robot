@@ -1,5 +1,6 @@
 *** Settings ***
 Resource  resource.robot
+Resource  login_resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 Test Setup  Create User And Go To Main Page
@@ -33,38 +34,15 @@ Logged In User Can Add A Lukuvinkki
     Submit Credentials
     Add New Should Be Available
 
+Logout From App
+    Set Username  keiju
+    Set Password  keijusana
+    Submit Credentials
+    Click Link  Kirjaudu ulos
+    Page Should Contain  Rekisteröidy täällä
 
-*** Keywords ***
-Create User And Go To Main Page
-    Reset Application
-    Logout
-    Create User  keiju  keijusana
-    Go To Main Page
-    Main Page Should Be Open
 
-Set Username
-    [Arguments]  ${username}
-    Input Text  kayttajatunnus  ${username}
 
-Set Password
-    [Arguments]  ${password}
-    Input Text  salasana  ${password}
 
-Submit Credentials
-    Click Button  Kirjaudu
-
-Login Should Succeed
-    Lukuvinkit Page Should Be Open
-
-Login Should Fail With Message
-    [Arguments]  ${message}
-    Main Page Should Be Open
-    Page Should Contain  ${message}
-
-Add New Should Be Available
-    Page Should Contain Button  Luo uusi lukuvinkki
-
-Add New Should Not Be Available
-    Page Should Not Contain  Luo uusi lukuvinkki
 
     
