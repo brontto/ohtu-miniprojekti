@@ -55,3 +55,4 @@ poetry run invoke test
 Hyväksymistesteissä [(src/tests/robot)](https://github.com/brontto/ohtu-miniprojekti/tree/main/src/tests/robot) käytetään Robot Frameworkia.
 
 Käynnistä testien suorittamista varten Flask-palvelin komennolla `poetry run invoke robot-start`. Suorita testit toisessa terminaali-ikkunassa komennolla `poetry run invoke robot-test`.  
+
