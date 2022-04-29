@@ -19,7 +19,7 @@ class Vinkkikirjasto:
                 self.vinkit.lisaa_uusi_vinkki(uusi_vinkki, kayttaja_id)
 
     def poista_tama_vinkki(self, otsikko, url):#kesken
-        for vinkki in self.vinkit:
+        for vinkki in self.vinkit.hae_kaikki_vinkit():
             if vinkki.get_otsikko == otsikko and vinkki.get_linkki == url:
                 self.vinkit.remove(vinkki)
 
