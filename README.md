@@ -16,6 +16,7 @@ Ohtu-miniprojekti
 
 [Product backlog](https://github.com/brontto/ohtu-miniprojekti/projects/1)
 
+[Loppuraportti](https://docs.google.com/document/d/1VwHhSXfaDF7HMjNcPluxqwuz0yLMjX78Z1BK_nNxKtE/edit?usp=sharing)
 
 ## Heroku 
 [Heroku App](https://damp-dawn-78777.herokuapp.com/)
