@@ -35,6 +35,7 @@ secrets.token_hex(16)
 - Alusta tietokanta komennolla `poetry run invoke initialize`
 - Käynnistä sovellus komennolla `poetry run invoke start`
 
+PostgreSQL:n asennus on suositeltavaa tehdä pääkäyttäjän oikeuksilla. Asennus onnistuu myös ilman pääkäyttäjän oikeuksia, mutta sovelluksen toiminnassa PostgreSQL:n kanssa voi joillain käyttäjillä olla ongelmia.
 
 ## Testaaminen
 
